@@ -1,0 +1,30 @@
+#include<iostream>
+#include<SDL2/SDL.h>
+
+
+//-lsfml-graphics -lsfml-audio -lsfml-window -lsfml-system
+
+using namespace std;
+
+int main(){
+    SDL_Window* window(0);
+    SDL_Event events;
+    bool finish(false);
+
+    if(SDL_Init(SDL_INIT_VIDEO) < 0){
+        std::cout << "Erreur lors de l'initialisation de la SDL : " << SDL_GetError() << std::endl;
+        SDL_Quit();
+        return -1;
+    }
+
+    window = SDL_CreateWindow("Project B", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_SHOWN);
+
+    if(window == 0){
+        std::cout << "Erreur lors de la creation de la fenetre : " << SDL_GetError() << std::endl;
+        SDL_Quit();
+        return -1;
+    }
+
+    while(!finish){
+        SDL_WaitEvent(&events);
+}
