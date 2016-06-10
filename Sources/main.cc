@@ -40,11 +40,11 @@ int main()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
             player.move(0,-1);
         }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
-            player.move(-1,0);
-        }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
             player.move(0,1);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
+            player.move(-1,0);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
             player.move(1,0);
