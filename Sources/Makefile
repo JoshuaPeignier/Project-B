@@ -1,20 +1,20 @@
 .SUFFIXES:	# Delete the default suffixes
-.SUFFIXES:	.cc .hh
+.SUFFIXES:	.cpp .hpp
 .PHONY:		all clean astyle 
 
 TARGET		= main
-CC_FILES	= $(wildcard *.cc)
-HH_FILES	= $(wildcard *.hh)
-O_FILES = 	$(CC_FILES:%.cc=%.o)
+CC_FILES	= $(wildcard *.cpp)
+HH_FILES	= $(wildcard *.hpp)
+O_FILES = 	$(CC_FILES:%.cpp=%.o)
 
 default: all
 
 all: $(TARGET)
 
-main.hh: ; touch main.hh
+main.hpp: ; touch main.hpp
 
-$(O_FILES): %.o: %.cc %.hh Makefile
-	g++ -Wall -Wextra -std=c++11 $*.cc -c
+$(O_FILES): %.o: %.cpp %.hpp Makefile
+	g++ -Wall -Wextra -std=c++11 $*.cpp -c
 
 $(TARGET): %: $(O_FILES) Makefile
 	g++ -Wall -Wextra $(O_FILES) -o $* -lsfml-graphics -lsfml-audio -lsfml-window -lsfml-system
